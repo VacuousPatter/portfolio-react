@@ -1,0 +1,22 @@
+.button{
+    color: inherit;
+    height: 34px;
+    width: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 999rem;
+    transition: all .325s;
+    background-color: var(--background-color);
+        color: var(--text-color);
+    
+    &:hover{
+        background-color: var(--onhover-background-color);
+        color: var(--onhover-text-color);
+        transform: translateY(-5%);
+    }
+}

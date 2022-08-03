@@ -1,0 +1,36 @@
+.skill-group {
+    padding: 25px;
+    box-sizing: border-box;
+    width: 300px;
+
+    ul{
+        display: flex;
+        flex-flow: column nowrap;
+        margin-left: 20px;
+        list-style: none;
+
+        li{
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+    }
+}
+
+.skill-name {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 25px;
+    transition: all 0.3s;
+
+    &:before {
+        content: '';
+        transition: all 0.3s;
+        position: absolute;
+        left: 0;
+        height: 100%;
+        width: 10px;
+        background: var(--accent-color);
+    }
+}

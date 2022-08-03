@@ -1,0 +1,35 @@
+.section {
+    padding: 50px 25px;
+        min-height: calc(100vh - var(--header-height));
+        box-sizing: border-box;
+}
+
+.image{
+    width: 100%;
+    
+    img{
+        max-height: 600px;
+        max-width: 100%;
+        display: block;
+        margin: 0 auto 0 auto;
+    }
+}
+
+.contact{
+    display: block;
+    text-decoration: none;
+    margin-bottom: 15px;
+    transition: all 0.3s;
+
+    &:hover{
+        transform: scale(1.05);
+    }
+
+    .contactCard{
+        padding: 10px 20px;
+
+        .icon{
+            display: block;
+        }
+    }
+}

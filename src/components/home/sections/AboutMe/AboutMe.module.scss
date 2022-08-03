@@ -1,0 +1,22 @@
+.section{
+    padding: 50px 25px;
+}
+
+.textAboutMe{
+    display: block;
+
+    &:nth-child(n+2){
+        margin-top: 10px;
+    }
+}
+
+.photo{
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.content{
+    margin-top: 25px;
+}

@@ -12,10 +12,7 @@
     border-radius: 999rem;
     background-color: var(--background-color);
     color: var(--text-color);
-
-    &.enable-transition-animation {
-        transition: all 0.325s;
-    }
+    transition: all 0.325s;
 
     &:hover {
         background-color: var(--onhover-background-color);

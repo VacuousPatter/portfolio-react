@@ -1,5 +1,5 @@
 // React
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 // UI
 import styles from './SocialButton.module.scss';
@@ -24,35 +24,18 @@ export default function SocialButton(props: Props) {
     const buttonElement = useRef<HTMLAnchorElement>(null);
     const actualTheme = useRecoilValue(actualThemeState);
 
-    if (buttonElement.current) {
-        const backgroundColor =
-            props.backgroundColor || actualTheme.palette.primary.main;
-        buttonElement.current.style.setProperty(
-            '--background-color',
-            props.showBackgroundOnlyOnHover ? 'transparent' : backgroundColor
-        );
-        buttonElement.current.style.setProperty(
-            '--onhover-background-color',
-            props.onHoverBackgroundColor || backgroundColor
-        );
-
-        const textColor =
-            props.textColor || actualTheme.palette.primary.contrastText;
-        buttonElement.current.style.setProperty('--text-color', textColor);
-        buttonElement.current.style.setProperty(
-            '--onhover-text-color',
-            props.onHoverTextColor || textColor
-        );
-    }
+    const [styleBackgroundColor, setStyleBackgroundColor] = useState(
+        props.backgroundColor || actualTheme.palette.primary.main
+    );
+    const [styleColor, setStyleColor] = useState(
+        props.textColor || actualTheme.palette.primary.contrastText
+    );
 
     useEffect(() => {
         if (!buttonElement.current) return;
         const backgroundColor =
             props.backgroundColor || actualTheme.palette.primary.main;
-        buttonElement.current.style.setProperty(
-            '--background-color',
-            props.showBackgroundOnlyOnHover ? 'transparent' : backgroundColor
-        );
+        setStyleBackgroundColor(backgroundColor);
         buttonElement.current.style.setProperty(
             '--onhover-background-color',
             props.onHoverBackgroundColor || backgroundColor
@@ -60,13 +43,11 @@ export default function SocialButton(props: Props) {
 
         const textColor =
             props.textColor || actualTheme.palette.primary.contrastText;
-        buttonElement.current.style.setProperty('--text-color', textColor);
+        setStyleColor(textColor);
         buttonElement.current.style.setProperty(
             '--onhover-text-color',
             props.onHoverTextColor || textColor
         );
-
-        buttonElement.current.classList.add('enable-transition-animation');
     }, [
         buttonElement,
         actualTheme,
@@ -84,6 +65,10 @@ export default function SocialButton(props: Props) {
             target="_blank"
             className={styles.button}
             rel="noreferrer"
+            style={{
+                backgroundColor: styleBackgroundColor,
+                color: styleColor,
+            }}
         >
             <Icon path={icon} size="24px"></Icon>
         </a>

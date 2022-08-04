@@ -1,4 +1,4 @@
-.button{
+.button {
     color: inherit;
     height: 34px;
     width: 34px;
@@ -10,11 +10,14 @@
     border: none;
     cursor: pointer;
     border-radius: 999rem;
-    transition: all .325s;
     background-color: var(--background-color);
-        color: var(--text-color);
-    
-    &:hover{
+    color: var(--text-color);
+
+    &.enable-transition-animation {
+        transition: all 0.325s;
+    }
+
+    &:hover {
         background-color: var(--onhover-background-color);
         color: var(--onhover-text-color);
         transform: translateY(-5%);

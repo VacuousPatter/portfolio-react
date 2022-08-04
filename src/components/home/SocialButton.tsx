@@ -44,6 +44,8 @@ export default function SocialButton(props: Props) {
             '--onhover-text-color',
             props.onHoverTextColor || textColor
         );
+
+        buttonElement.current.classList.add('enable-transition-animation');
     }, [
         buttonElement,
         actualTheme,

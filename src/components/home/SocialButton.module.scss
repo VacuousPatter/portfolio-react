@@ -15,8 +15,6 @@
     transition: all 0.325s;
 
     &:hover {
-        background-color: var(--onhover-background-color);
-        color: var(--onhover-text-color);
         transform: translateY(-5%);
     }
 }

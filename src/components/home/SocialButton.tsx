@@ -21,35 +21,35 @@ interface Props {
 
 export default function SocialButton(props: Props) {
     const { icon, url } = props;
-    const buttonElement = useRef<HTMLAnchorElement>(null);
     const actualTheme = useRecoilValue(actualThemeState);
 
+    const [hover, setHover] = useState(false);
     const [styleBackgroundColor, setStyleBackgroundColor] = useState(
         props.backgroundColor || actualTheme.palette.primary.main
     );
     const [styleColor, setStyleColor] = useState(
         props.textColor || actualTheme.palette.primary.contrastText
     );
+    const [styleHoverBackgroundColor, setStyleHoverBackgroundColor] = useState(
+        props.backgroundColor || actualTheme.palette.primary.main
+    );
+    const [styleHoverColor, setStyleHoverColor] = useState(
+        props.textColor || actualTheme.palette.primary.contrastText
+    );
 
     useEffect(() => {
-        if (!buttonElement.current) return;
         const backgroundColor =
             props.backgroundColor || actualTheme.palette.primary.main;
         setStyleBackgroundColor(backgroundColor);
-        buttonElement.current.style.setProperty(
-            '--onhover-background-color',
+        setStyleHoverBackgroundColor(
             props.onHoverBackgroundColor || backgroundColor
         );
 
         const textColor =
             props.textColor || actualTheme.palette.primary.contrastText;
         setStyleColor(textColor);
-        buttonElement.current.style.setProperty(
-            '--onhover-text-color',
-            props.onHoverTextColor || textColor
-        );
+        setStyleHoverColor(props.onHoverTextColor || textColor);
     }, [
-        buttonElement,
         actualTheme,
         props.onHoverBackgroundColor,
         props.onHoverTextColor,
@@ -60,15 +60,18 @@ export default function SocialButton(props: Props) {
 
     return (
         <a
-            ref={buttonElement}
             href={url}
             target="_blank"
             className={styles.button}
             rel="noreferrer"
             style={{
-                backgroundColor: styleBackgroundColor,
-                color: styleColor,
+                backgroundColor: hover
+                    ? styleHoverBackgroundColor
+                    : styleBackgroundColor,
+                color: hover ? styleHoverColor : styleColor,
             }}
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
         >
             <Icon path={icon} size="24px"></Icon>
         </a>

@@ -17,10 +17,16 @@ import { useRecoilValue } from 'recoil';
 import { socialNetworksState } from 'states/socialNetworks';
 import Icon from '@mdi/react';
 
+// Headers
+import { getHead } from 'utils/head/headTags';
+
 export default function ContatoPage() {
     const socialNetworks = useRecoilValue(socialNetworksState);
     return (
         <LandingPageLayout>
+            {getHead({
+                title: 'Contato',
+            })}
             <section className={styles.section}>
                 <ParticlesBackground>
                     <Container maxWidth="lg">

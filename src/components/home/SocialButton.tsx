@@ -40,7 +40,9 @@ export default function SocialButton(props: Props) {
     useEffect(() => {
         const backgroundColor =
             props.backgroundColor || actualTheme.palette.primary.main;
-        setStyleBackgroundColor(backgroundColor);
+        setStyleBackgroundColor(
+            props.showBackgroundOnlyOnHover ? 'unset' : backgroundColor
+        );
         setStyleHoverBackgroundColor(
             props.onHoverBackgroundColor || backgroundColor
         );

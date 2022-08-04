@@ -19,7 +19,7 @@ declare module '@mui/material' {
     }
 }
 
-type themesNames = 'dark' | 'dark2';
+type themesNames = 'dark';
 
 export const allThemesState = atom<{
     [themeName in themesNames]: Theme;
@@ -29,6 +29,24 @@ export const allThemesState = atom<{
         dark: createTheme({
             typography: {
                 fontFamily: "'Montserrat', sans-serif",
+                h1: {
+                    margin: 'unset',
+                },
+                h2: {
+                    margin: 'unset',
+                },
+                h3: {
+                    margin: 'unset',
+                },
+                h4: {
+                    margin: 'unset',
+                },
+                h5: {
+                    margin: 'unset',
+                },
+                h6: {
+                    margin: 'unset',
+                },
             },
             palette: {
                 mode: 'dark',
@@ -48,33 +66,6 @@ export const allThemesState = atom<{
                 background: {
                     default: '#121417',
                     paper: '#121417',
-                },
-            },
-        }),
-        dark2: createTheme({
-            breakpoints: {
-                values: {
-                    sm: 100,
-                    xs: 50,
-                    md: 1200,
-                    lg: 1500,
-                    xl: 1800,
-                },
-            },
-            palette: {
-                mode: 'dark',
-                custom: {
-                    backgroundDrawer: '#121417',
-                    headerBackground: '#121417',
-                    footerBackground: '#000000',
-                },
-                primary: {
-                    main: '#ff00ff',
-                    contrastText: '#ffffff',
-                },
-                background: {
-                    default: '#060708',
-                    paper: '#060708',
                 },
             },
         }),

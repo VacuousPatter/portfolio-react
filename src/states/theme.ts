@@ -29,23 +29,8 @@ export const allThemesState = atom<{
         dark: createTheme({
             typography: {
                 fontFamily: "'Montserrat', sans-serif",
-                h1: {
-                    margin: 'unset',
-                },
-                h2: {
-                    margin: 'unset',
-                },
-                h3: {
-                    margin: 'unset',
-                },
-                h4: {
-                    margin: 'unset',
-                },
-                h5: {
-                    margin: 'unset',
-                },
-                h6: {
-                    margin: 'unset',
+                allVariants: {
+                    margin: undefined,
                 },
             },
             palette: {
